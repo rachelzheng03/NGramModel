@@ -80,10 +80,10 @@ The script has an optional command line argument that saves the data of the best
 ```
 (2) Pretrained Mode
 
-The pretrained mode skips selecting the best model and goes straight to the testing phase given that a JSON file containing the data of an already trained NGram model is provided. The JSON file must follow the format of `student_model_data.json` which can be found at `./data/saved_models/`. In order to run the script in this mode, put the JSON file containing the pretrained model into  `./data/saved_models/` and run the following in your terminal:
+The pretrained mode skips selecting the best model and goes straight to the testing phase given that a JSON file containing the data of an already trained NGram model is provided. The JSON file must follow the format of `student_model_data.json` which can be found at `./data/saved_models/`. For demonstrating purposes, let the JSON file containing the data of the pretrained model be named `pretrained_model_data.json`. In order to run the script in this mode, put `pretrained_model_data.json` into `./data/saved_models/` and run the following in your terminal:
 
 ```
-(venv) ~/NGramModel $ python main.py --pretrain <pretrained_model_data>.json
+(venv) ~/NGramModel $ python main.py --pretrain pretrained_model_data.json
 ```
 
 Note that either --train or --pretrain must be specified, and if --pretrain is specified, then -s cannot be used.
