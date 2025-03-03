@@ -23,25 +23,34 @@ This project is implemented in **Python 3.9+** and is compatible with **macOS, L
 (1) Clone the repository to your workspace:  
 ```shell
 ~ $ git clone https://github.com/your-repository/your-project.git
+```
 
 (2) Navigate into the repository:
-
+```
 ~ $ cd your-project
 ~/your-project $
+```
 
 (3) Set up a virtual environment and activate it:
 
 For macOS/Linux:
-
+```
 ~/your-project $ python -m venv ./venv/
 ~/your-project $ source venv/bin/activate
 (venv) ~/your-project $ 
+```
 
+For Windows:
+```
+python -m venv venv
+venv/Scripts/Activate
+```
 
 To deactivate the virtual environment, use the command:
-
+```
 (venv) $ deactivate
 ```
+
 
 ## **2.2 Install Packages**
 
