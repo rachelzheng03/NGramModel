@@ -55,12 +55,13 @@ To deactivate the virtual environment, use the command:
 ## **2.2 Install Packages**
 
 Install the required dependencies:
-
+```
 (venv) ~/your-project $ pip install -r requirements.txt
+```
 
 ## **2.3 Run N-gram**
 
-The script has two modes: train or pretrained
+The script has two modes: train and pretrained
 
 (1) Mode: Train
 
@@ -77,13 +78,14 @@ The script has an optional command line argument that saves the data of the best
 (venv) ~/your-project $ python main.py --train <training_filname>.txt -s model_data.json
 ```
 (2) Mode: Pretrained
-The pretrained mode skips the training phase and goes straight to the testing phase given that a JSON file containing the model data is provided. This JSON file must follow the format of `student_model_data.json` which can be found at `./data/saved_models/`. In order to run the script in this mode put the JSON file containing the pretrained model into  `./data/saved_models/` and run the following in your terminal:
+
+The pretrained mode skips selecting the best model and goes straight to the testing phase given that a JSON file containing the data of an already trained NGram model is provided. The JSON file must follow the format of `student_model_data.json` which can be found at `./data/saved_models/`. In order to run the script in this mode, put the JSON file containing the pretrained model into  `./data/saved_models/` and run the following in your terminal:
 
 ```
 (venv) ~/your-project $ python main.py --pretrain <pretrained_model_data>.json
 ```
 
-Note that either --train or --pretrain must be specified and if --pretrain is specified then -s cannot be used.
+Note that either --train or --pretrain must be specified, and if --pretrain is specified, then -s cannot be used.
 
 ## 3. Report
 The assignment report is available in the file Assignment_Report.pdf.
