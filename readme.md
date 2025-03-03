@@ -60,16 +60,32 @@ Install the required dependencies:
 
 ## **2.3 Run N-gram**
 
-(1) Run N-gram Demo
+The script has two modes: train or pretrained
+
+(1) Mode: Train
 
 The script takes a corpus of Java methods as input and automatically identifies the best-performing model based on a specific N-value. It then evaluates the selected model on the test set extracted according to the assignment specifications.
-Since the training corpus differs from both the instructor-provided dataset and our own dataset, we store the results in a file named results_provided_model.[json/csv/txt] to distinguish them accordingly.
+Since the training corpus differs from both the instructor-provided dataset and our own dataset, we store the results in a file named `results_provided_model.json` to distinguish them accordingly.
 
-(venv) ~/your-project $ python ngram.py corpus.txt
+Put `<training_filname>.txt` in the folder `data` and run the following command (replace `training_filename` with the name of the file that contains the training corpus):
+```
+(venv) ~/your-project $ python main.py --train <training_filname>.txt
+```
 
+The script has an optional command line argument that saves the data of the best-performing model to a JSON file. This file will be saved to the path `./data/saved_models/`. For example, if you want to save the model to the file `model_data.json` you would run the following command:
+```
+(venv) ~/your-project $ python main.py --train <training_filname>.txt -s model_data.json
+```
+(2) Mode: Pretrained
+The pretrained mode skips the training phase and goes straight to the testing phase given that a JSON file containing the model data is provided. This JSON file must follow the format of `student_model_data.json` which can be found at `./data/saved_models/`. In order to run the script in this mode put the JSON file containing the pretrained model into  `./data/saved_models/` and run the following in your terminal:
+
+```
+(venv) ~/your-project $ python main.py --pretrain <pretrained_model_data>.json
+```
+
+Note that either --train or --pretrain must be specified and if --pretrain is specified then -s cannot be used.
 
 ## 3. Report
-
 The assignment report is available in the file Assignment_Report.pdf.
 
 
