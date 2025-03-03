@@ -93,6 +93,7 @@ The assignment report is available in the file Assignment_Report.pdf.
 
 ## 4. Extra Notes
 (1) Testing Results
+
 The JSON file containing the testing results is structured such that the keys indicate the method number, and the values are lists of "tuples" that contain a predicted token and its probability. The first n tokens along with the predicted tokens in each tuple in the list make up the entire predicted function. The generating for the method stops under 3 cases:
 1. The NGram model has predicted the end token `<\s>`.
 2. The NGram model encounters an ngram it has never seen. The last predicted token for the method in this case is `<UNK>`.
@@ -100,6 +101,8 @@ The JSON file containing the testing results is structured such that the keys in
 
 The "tuples" are technically strings, since JSON does not support tuples. However, the method `read_test_results` in `util.py` will read the results file and return a dictionary of the testing results where the "tuples" have been converted into actual tuple objects.
 
-(2) The datasets containing the methods extracted using PyDriller can be accessed at this link: https://drive.google.com/drive/folders/1qT5sdRxuC5gUH5tJc8LsPVBTxv8bVA9Q?usp=sharing.
+(2) Additional Datasets
+
+The datasets containing the methods extracted using PyDriller can be accessed at this link: https://drive.google.com/drive/folders/1qT5sdRxuC5gUH5tJc8LsPVBTxv8bVA9Q?usp=sharing.
 
 
