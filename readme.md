@@ -23,22 +23,22 @@ This project is implemented in **Python 3.9+** and is compatible with **macOS, L
 
 (1) Clone the repository to your workspace:  
 ```shell
-~ $ git clone https://github.com/your-repository/your-project.git
+~ $ git clone https://github.com/rachelzheng03/NGramModel.git
 ```
 
 (2) Navigate into the repository:
 ```
-~ $ cd your-project
-~/your-project $
+~ $ cd NGramModel
+~/NGramModel $
 ```
 
 (3) Set up a virtual environment and activate it:
 
 For macOS/Linux:
 ```
-~/your-project $ python -m venv ./venv/
-~/your-project $ source venv/bin/activate
-(venv) ~/your-project $ 
+~/NGramModel $ python -m venv ./venv/
+~/NGramModel $ source venv/bin/activate
+(venv) ~/NGramModel $ 
 ```
 
 For Windows:
@@ -57,7 +57,7 @@ To deactivate the virtual environment, use the command:
 
 Install the required dependencies:
 ```
-(venv) ~/your-project $ pip install -r requirements.txt
+(venv) ~/NGramModel $ pip install -r requirements.txt
 ```
 
 ## **2.3 Run N-gram**
@@ -71,19 +71,19 @@ Since the training corpus differs from both the instructor-provided dataset and 
 
 Put `<training_filname>.txt` in the folder `data` and run the following command (replace "training_filename" with the name of the file that contains the training corpus):
 ```
-(venv) ~/your-project $ python main.py --train <training_filname>.txt
+(venv) ~/NGramModel $ python main.py --train <training_filname>.txt
 ```
 
-The script has an optional command line argument that saves the data of the best-performing model to a JSON file. This file will be saved to the path `./data/saved_models/`. For example, if you want to save the model to the file `model_data.json` you would run the following command:
+The script has an optional command line argument that saves the data of the best-performing model to a JSON file. This file will be saved to the path `./data/saved_models/`. For example, if you want to save the model to a file named `model_data.json` you would run the following command:
 ```
-(venv) ~/your-project $ python main.py --train <training_filname>.txt -s model_data.json
+(venv) ~/NGramModel $ python main.py --train <training_filname>.txt -s model_data.json
 ```
 (2) Pretrained Mode
 
 The pretrained mode skips selecting the best model and goes straight to the testing phase given that a JSON file containing the data of an already trained NGram model is provided. The JSON file must follow the format of `student_model_data.json` which can be found at `./data/saved_models/`. In order to run the script in this mode, put the JSON file containing the pretrained model into  `./data/saved_models/` and run the following in your terminal:
 
 ```
-(venv) ~/your-project $ python main.py --pretrain <pretrained_model_data>.json
+(venv) ~/NGramModel $ python main.py --pretrain <pretrained_model_data>.json
 ```
 
 Note that either --train or --pretrain must be specified, and if --pretrain is specified, then -s cannot be used.
@@ -92,7 +92,7 @@ Note that either --train or --pretrain must be specified, and if --pretrain is s
 The assignment report is available in the file Assignment_Report.pdf.
 
 ## 4. Extra Notes
-The JSON file containing the testing results is structured such that the keys indicate the method number, and the values are lists of "tuples" that contain a predicted token and its probability. The first 3 tokens along with the predicted tokens in each tuple in the list make up the entire predicted function. The generating for the method stops under 3 cases:
+The JSON file containing the testing results is structured such that the keys indicate the method number, and the values are lists of "tuples" that contain a predicted token and its probability. The first n tokens along with the predicted tokens in each tuple in the list make up the entire predicted function. The generating for the method stops under 3 cases:
 1. The NGram model has predicted the end token `<\s>`.
 2. The NGram model encounters an ngram it has never seen. The last predicted token for the method in this case is `<UNK>`.
 3. The NGram has predicted i tokens such that n+i matches the length of the ground truth method.
