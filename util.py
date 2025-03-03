@@ -49,3 +49,11 @@ def tokenize_methods_from_dataframe(df: pd.DataFrame, method_column: str, langua
     print_progress(100)
     print()
     return df
+
+def read_test_results(filename: str):
+    with open(filename, "r") as f:
+        loaded_data = json.load(f)
+    for k,v in loaded_data.items():
+        for i, tok in enumerate(v):
+            v[i] = eval(tok)
+    return loaded_data

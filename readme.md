@@ -6,7 +6,7 @@
   * [2.2 Install Packages](#22-install-packages)  
   * [2.3 Run N-gram](#23-run-n-gram)  
 * [3 Report](#3-report) 
-* [4 Extra Notes] (#4-extra-notes)
+* [4 Extra Notes](#4-extra-notes)
 
 ---
 
@@ -97,6 +97,6 @@ The JSON file containing the testing results is structured such that the keys in
 2. The NGram model encounters an ngram it has never seen. The last predicted token for the method in this case is `<UNK>`.
 3. The NGram has predicted i tokens such that n+i matches the length of the ground truth method.
 
-The "tuples" are technically strings since JSON does not support tuples, but there is a method in `util.py` that will read the results file and return a dictionary of the testing results where the "tuples" have been converted into actual tuple objects.
+The "tuples" are technically strings, since JSON does not support tuples. However, the method `read_test_results` in `util.py` will read the results file and return a dictionary of the testing results where the "tuples" have been converted into actual tuple objects.
 
 
